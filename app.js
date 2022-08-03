@@ -24,6 +24,8 @@ const listScheme = {
   items: [itemSchema]
 };
 
+const List = mongoose.model("List", listScheme);
+
 const item1 = new Item({
   name: "Welcome to your todolist."
 });
