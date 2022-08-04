@@ -13,9 +13,9 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb+srv://stevenkelvin:Ilovechc1314@cluster0.58gmtga.mongodb.net/todolistDB");
 
-const itemSchema = new mongoose.Schema({
+const itemSchema = {
   name: String
-});
+};
 
 const Item = mongoose.model("Item", itemSchema);
 
@@ -91,7 +91,7 @@ app.post("/delete", function(req,res){
   }
 
   if(listName == day){
-    Item.findByIdAndRemove(convertedCheckedItemId, function (err) {
+    Item.findByIdAndDelete(convertedCheckedItemId, function (err) {
       if(err){
         console.log(err);
       }
